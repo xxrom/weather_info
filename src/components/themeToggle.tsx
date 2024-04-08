@@ -8,7 +8,7 @@ export const ThemeToggler = memo(() => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="absolute top-2 right-2" suppressHydrationWarning>
+    <div className="absolute top-2 right-6 sm:right-2" suppressHydrationWarning>
       {theme !== "light" && (
         <Button
           variant="outline"

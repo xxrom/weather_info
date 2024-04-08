@@ -6,16 +6,16 @@ import { WeatherOneDay } from "@/components/WeatherOneDay/WeatherOneDay";
 import { ThemeToggler } from "@/components/themeToggle";
 import { Suspense } from "react";
 
-export type WeatherOneDayPage = {
+export type DefaultWeatherPage = {
   city: string;
 };
 
-const WeatherOneDayPage = async ({ city = "dubai" }: WeatherOneDayPage) => {
+const DefaultWeatherPage = async ({ city = "dubai" }: DefaultWeatherPage) => {
   return (
-    <div className="flex min-h-screen flex-col items-center pt-8 p-4">
+    <div className="flex min-h-screen flex-col items-center pt-14 p-6">
       <Suspense fallback={<SkeletonWeather />}>
         <WeatherOneDay city={city} />
-        {1 && <WeatherFiveDays city={city} />}
+        <WeatherFiveDays city={city} />
 
         <CityInput placeholder={city} />
         <ManualUpdate />
@@ -26,4 +26,4 @@ const WeatherOneDayPage = async ({ city = "dubai" }: WeatherOneDayPage) => {
   );
 };
 
-export default WeatherOneDayPage;
+export default DefaultWeatherPage;

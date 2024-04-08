@@ -69,7 +69,7 @@ export const fetchWeather = async (
     }
   ).then(async (res) => {
     const data = await res.json();
-    //await sleep(2000);
+    await sleep(500);
 
     return data;
   });

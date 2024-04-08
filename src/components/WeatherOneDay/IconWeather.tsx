@@ -9,7 +9,7 @@ export const IconWeather = ({
   description,
 }: WeatherObjectInfoType) => {
   return (
-    <Card className="grid grid-span-1 grid-flow-row gap-2 grid-cols-[128px_1fr] p-4">
+    <Card className="grid grid-span-1 grid-flow-row gap-2 grid-cols-[128px_1fr] p-4 overflow-scroll">
       {icon && (
         <div className="grid bg-slate-200 dark:bg-slate-600 rounded-md">
           <Image

@@ -9,7 +9,7 @@ export type WeatherFiveDaysType = {
 };
 
 const weatherTag = "weather-city-5days";
-//`${process.env.NEXT_PUBLIC_SERVER_URL}/api/articles/?limit=${limit}&page=${page}`,
+
 export const fetchWeatherFiveDays = async (
   city = "dubai"
 ): Promise<WeatherFiveDaysType> =>
@@ -23,7 +23,7 @@ export const fetchWeatherFiveDays = async (
     }
   ).then(async (res) => {
     const data = await res.json();
-    //await sleep(2000);
+    await sleep(1000);
 
     return data;
   });

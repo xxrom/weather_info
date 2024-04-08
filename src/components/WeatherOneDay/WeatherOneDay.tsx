@@ -20,7 +20,7 @@ export const WeatherOneDay = memo(async ({ city = "dubai" }: WeatherOneDay) => {
   }
 
   return (
-    <div className="grid grid-cols-[300px] sm:grid-cols-[600px] justify-center">
+    <div className="grid grid-cols-1 sm:grid-cols-[600px] w-full sm:w-fit">
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 auto-cols-max">
         <div className="grid grid-cols-1 gap-2">
           <CityTime name={name} dt={dt} />
