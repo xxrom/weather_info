@@ -1,0 +1,7 @@
+services:
+  frontend:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "6061:6060"
