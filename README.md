@@ -24,6 +24,7 @@ The application is designed with scalability and maintainability in mind, featur
 - Clean UI: Offers a straightforward and intuitive interface for users to effortlessly input their locations and receive weather information.
 - Light/Dark theme modes.
 - Desktop/Table/Mobile adapted design.
+- Added dockerfile + docker-compose for running project in the docker.
 
 ### Getting Started
 
@@ -65,6 +66,14 @@ Navigate to http://localhost:6060 to view the application.
 yarn build
 yarn start
 ```
+
+#### Build docker image and run project inside docker
+
+```
+yarn docker
+```
+
+Open "http://localhost:6061" that will be routed inside docker image to port 6060
 
 ---
 
