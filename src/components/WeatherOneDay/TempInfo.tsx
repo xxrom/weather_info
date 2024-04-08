@@ -28,7 +28,7 @@ export const TempInfo = ({
     <div>
       {`Pressure: `}
       <Highlight fontWeight="font-normal">{pressure}</Highlight>
-      {` in`}
+      {` hPa`}
     </div>
     <div>
       {`Humidity: `}

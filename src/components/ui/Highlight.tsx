@@ -7,7 +7,7 @@ export type Highlight = {
 
 export const Highlight = ({
   children,
-  fontColor = "text-purple-800",
+  fontColor = "text-purple-800 dark:text-purple-400",
   fontWeight = "font-bold",
   className = "",
 }: Highlight) => (

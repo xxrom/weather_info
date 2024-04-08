@@ -11,7 +11,7 @@ export const IconWeather = ({
   return (
     <Card className="grid grid-span-1 grid-flow-row gap-2 grid-cols-[128px_1fr] p-4">
       {icon && (
-        <div className="grid bg-slate-400 rounded-md">
+        <div className="grid bg-slate-200 dark:bg-slate-600 rounded-md">
           <Image
             alt="weather"
             height={128}
