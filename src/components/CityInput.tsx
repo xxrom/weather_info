@@ -23,16 +23,18 @@ export const CityInput = memo(({ placeholder }: CityInput) => {
   const onChangeCity = (event: ChangeEvent<HTMLInputElement>) => {
     setCity(event.target.value.toLowerCase());
   };
-  const goToCity = () => {
+
+  const changeCity = () => {
     router.push(`/${city}`);
   };
 
   const onClickGoToCity: MouseEventHandler<HTMLButtonElement> = () => {
-    goToCity();
+    changeCity();
   };
+
   const onKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
     if (event.key === "Enter") {
-      goToCity();
+      changeCity();
     }
   };
 

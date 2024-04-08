@@ -15,6 +15,7 @@ export const IconWeather = ({
             alt="weather"
             height={128}
             width={128}
+            priority={false}
             src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
           />
         </div>
