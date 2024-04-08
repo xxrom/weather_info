@@ -20,6 +20,8 @@ The application is designed with scalability and maintainability in mind, featur
 - Elegant Design: Utilizes Tailwind CSS for stylish and responsive design.
 - Robust Error Handling: Gracefully handles API request failures and validates user inputs.
 - Clean UI: Offers a straightforward and intuitive interface for users to effortlessly input their locations and receive weather information.
+- Light/Dark theme modes.
+- Desktop/Table/Mobile adapted design.
 
 ### Getting Started
 
@@ -31,7 +33,7 @@ Prerequisites:
 Clone the repository and install all packages:
 
 ```
-git clone https://yourrepository.com/weather_info.git
+git clone git@github.com:xxrom/weather_info.git
 
 cd weather_info
 
@@ -62,6 +64,8 @@ yarn build
 yarn start
 ```
 
+---
+
 #### Technologies Used
 
 - `Next.js`: For server-side rendering, routing, and tooling.
@@ -71,5 +75,4 @@ yarn start
 - `@nivo`: For rendering responsive and interactive charts.
 - `ui.shadcn`: For styled components.
 
-License
-This project is licensed under the MIT License - see the file for details.
+---
