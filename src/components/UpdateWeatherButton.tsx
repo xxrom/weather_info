@@ -8,20 +8,18 @@ import { Button } from "./ui/button";
 const REVALIDATE_INTERVAL = 10 * 60 * 1000; // 10 min auto updates
 
 export const UpdateWeatherButton = () => {
+  const revalidateAll = () => {
+    revalidateWeather();
+    revalidateWeatherFiveDays();
+  };
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      revalidateWeather();
-      revalidateWeatherFiveDays();
-    }, REVALIDATE_INTERVAL);
+    const interval = setInterval(revalidateAll, REVALIDATE_INTERVAL);
 
     return () => {
       clearInterval(interval);
     };
   }, []);
 
-  const onClickUpdate = () => {
-    revalidateWeather();
-  };
-
-  return <Button onClick={onClickUpdate}>Manual update</Button>;
+  return <Button onClick={revalidateAll}>Manual update</Button>;
 };

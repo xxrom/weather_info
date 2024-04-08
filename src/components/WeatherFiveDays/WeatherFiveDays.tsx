@@ -4,6 +4,7 @@ import { fetchWeatherFiveDays } from "@/actions/weatherFiveDays";
 import { Line } from "@nivo/line";
 import { Card } from "../ui/card";
 import { Highlight } from "../ui/Highlight";
+import { formatUrl } from "@/utils/url-text";
 
 export type WeatherFiveDays = {
   city: string;
@@ -24,11 +25,11 @@ export const WeatherFiveDays = async ({ city }: WeatherFiveDays) => {
   ];
 
   return (
-    <div className="grid w-full max-w-[300px] sm:max-w-[600px] ">
+    <div className="grid grid-cols-[300px] sm:grid-cols-[600px]">
       <Card className="p-4 mt-2 overflow-scroll">
         <div className="mb-4">
-          {`Next five days forecast for `}
-          <Highlight>{city}</Highlight>
+          {`Next five days forecast for: `}
+          <Highlight>{formatUrl(city)}</Highlight>
         </div>
 
         <div className="grid overflow-scroll">

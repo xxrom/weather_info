@@ -10,6 +10,7 @@ import {
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
+import { formatUrl } from "@/utils/url-text";
 
 export type CityInput = {
   placeholder?: string;
@@ -39,10 +40,10 @@ export const CityInput = memo(({ placeholder }: CityInput) => {
   };
 
   return (
-    <div className="grid grid-flow-row grid-cols-2 gap-2 my-2 mt-6">
+    <div className="grid grid-flow-row grid-cols-2 gap-2 my-2 mt-8">
       <Input
         className="inline-grid"
-        value={city.replace("%20", " ")}
+        value={formatUrl(city)}
         onChange={onChangeCity}
         onKeyDown={onKeyDown}
       />

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { WeatherObjectInfoType } from "@/actions/weather";
-import { Card, CardHeader } from "../ui/card";
+import { Card } from "../ui/card";
+import { Highlight } from "../ui/Highlight";
 
 export const IconWeather = ({
   icon,
@@ -21,9 +22,9 @@ export const IconWeather = ({
         </div>
       )}
 
-      <div className="grid items-center  ml-2">
+      <div className="grid items-center ml-2">
         <div>{`Conditions:`}</div>
-        <div>{`${main}`}</div>
+        <Highlight>{`${main}`}</Highlight>
         <div>{`(${description})`}</div>
       </div>
     </Card>

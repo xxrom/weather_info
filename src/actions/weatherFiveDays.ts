@@ -2,6 +2,7 @@
 
 import { revalidateTag } from "next/cache";
 import { WeatherObjectType } from "./weather";
+import { sleep } from "@/utils/sleep";
 
 export type WeatherFiveDaysType = {
   list: Array<WeatherObjectType>;

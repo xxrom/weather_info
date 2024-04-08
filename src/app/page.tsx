@@ -11,12 +11,12 @@ export type WeatherOneDayPage = {
 
 const WeatherOneDayPage = async ({ city = "dubai" }: WeatherOneDayPage) => {
   return (
-    <div className="flex min-h-screen flex-col items-center p-4 sm:p-12">
+    <div className="flex min-h-screen flex-col items-center pt-8 p-4">
       <Suspense fallback={<SkeletonWeather />}>
         <WeatherOneDay city={city} />
         <WeatherFiveDays city={city} />
 
-        <CityInput />
+        <CityInput placeholder={city} />
         <ManualUpdate />
       </Suspense>
     </div>
