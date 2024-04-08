@@ -1,7 +1,7 @@
 "use client";
 
 import { fetchWeatherFiveDays } from "@/actions/weatherFiveDays";
-import { Line, ResponsiveLine, LineProps } from "@nivo/line";
+import { Line, ResponsiveLine, LineProps, SliceTooltipProps } from "@nivo/line";
 import { Card } from "../ui/card";
 import { Highlight } from "../ui/Highlight";
 import { formatUrl } from "@/utils/url-text";
@@ -18,7 +18,7 @@ export const WeatherFiveDays = ({ city }: WeatherFiveDays) => {
       color: "",
       data: [
         {
-          x: "",
+          x: "-",
           y: 1,
         },
       ],
@@ -60,15 +60,16 @@ export const WeatherFiveDays = ({ city }: WeatherFiveDays) => {
               data={data}
               curve="cardinal"
               height={400}
-              width={500}
+              width={550}
               animate={true}
+              isInteractive={true}
               margin={{ top: 15, right: 15, bottom: 70, left: 50 }}
               axisTop={null}
               axisRight={null}
               axisLeft={{
                 tickSize: 3,
                 tickPadding: 5,
-                legend: "Temperature °C`",
+                legend: "Temperature °C",
                 legendOffset: -40,
                 legendPosition: "middle",
               }}
@@ -101,15 +102,55 @@ export const WeatherFiveDays = ({ city }: WeatherFiveDays) => {
               areaBlendMode="darken"
               lineWidth={1}
               pointBorderWidth={1}
+              pointColor={{ from: "color", modifiers: [] }}
+              pointBorderColor={{ from: "serieColor", modifiers: [] }}
+              areaBaselineValue={0}
+              pointLabel="y"
+              enablePointLabel={false}
               enableTouchCrosshair={true}
               enableArea={true}
+              areaOpacity={0.2}
               colors={["#855ae9"]}
               useMesh={true}
+              debugMesh={false}
+              debugSlices={false}
+              sliceTooltip={(tooltip: SliceTooltipProps) => (
+                <div>
+                  {tooltip.slice.points.map(({ id, data }) => (
+                    <span
+                      key={id}
+                      className="p-2 bg-purple-100 dark:bg-purple-500 border border-purple-800 rounded-md"
+                    >
+                      {`${data.yFormatted} °C`}
+                    </span>
+                  ))}
+                </div>
+              )}
               fill={[]}
               defs={[]}
+              layers={[
+                "grid",
+                "markers",
+                "axes",
+                "areas",
+                "crosshair",
+                "lines",
+                "points",
+                "slices",
+                "mesh",
+                "legends",
+              ]}
+              enableGridX={true}
+              enableGridY={true}
               role=""
               enableCrosshair={true}
+              enablePoints={true}
               enableSlices="x"
+              tooltip={({ id, value }: any) => (
+                <strong>
+                  {id}: {value}
+                </strong>
+              )}
               legends={[
                 {
                   anchor: "bottom-right",
