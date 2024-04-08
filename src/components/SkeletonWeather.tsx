@@ -10,9 +10,9 @@ export const SkeletonWeather = memo(() => (
     </div>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 items-center gap-2">
-      <Skeleton className="h-[174px] sm:h-[148px] w-full rounded-md border-2 border-slate-300" />
+      <Skeleton className="h-[174px] sm:h-[122px] w-full rounded-md border-2 border-slate-300" />
 
-      <Skeleton className="hidden sm:grid h-[148px] w-full rounded-md border-2 border-slate-300" />
+      <Skeleton className="hidden sm:grid h-[122px] w-full rounded-md border-2 border-slate-300" />
     </div>
 
     <div className="grid grid-cols-1 sm:grid-cols-1 items-center gap-2">
