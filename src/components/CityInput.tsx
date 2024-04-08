@@ -42,7 +42,7 @@ export const CityInput = memo(({ placeholder }: CityInput) => {
   return (
     <div className="grid grid-flow-row grid-cols-2 gap-2 my-2 mt-8">
       <Input
-        className="inline-grid"
+        className="inline-grid capitalize"
         value={formatUrl(city)}
         onChange={onChangeCity}
         onKeyDown={onKeyDown}

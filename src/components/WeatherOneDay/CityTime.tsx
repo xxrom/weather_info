@@ -10,7 +10,7 @@ export const CityTime = ({ name, dt }: CityTime) => {
   return (
     <Card className="p-4">
       <div>
-        Weather for <Highlight>{name}</Highlight>
+        Weather for <Highlight className="capitalize">{name}</Highlight>
       </div>
 
       <div>{`Updated: ${new Date(dt * 1000).toString().slice(0, 21)}`}</div>

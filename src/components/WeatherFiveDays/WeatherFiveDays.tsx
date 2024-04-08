@@ -29,7 +29,7 @@ export const WeatherFiveDays = async ({ city }: WeatherFiveDays) => {
       <Card className="p-4 mt-2 overflow-scroll">
         <div className="mb-4">
           {`Next five days forecast for: `}
-          <Highlight>{formatUrl(city)}</Highlight>
+          <Highlight className="capitalize">{formatUrl(city)}</Highlight>
         </div>
 
         <div className="grid overflow-scroll">
