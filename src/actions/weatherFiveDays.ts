@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidateTag } from "next/cache";
-import { WeatherObjectType } from "./weather";
+import { WeatherObjectType } from "./weatherCurrent";
 import { sleep } from "@/utils/sleep";
 
 export type WeatherFiveDaysType = {

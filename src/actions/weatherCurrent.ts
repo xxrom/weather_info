@@ -56,7 +56,7 @@ export type WeatherObjectType = {
 
 const weatherTag = "weather-city";
 //`${process.env.NEXT_PUBLIC_SERVER_URL}/api/articles/?limit=${limit}&page=${page}`,
-export const fetchWeather = async (
+export const fetchWeatherCurrent = async (
   city = "dubai"
 ): Promise<WeatherObjectType> =>
   fetch(
@@ -74,7 +74,7 @@ export const fetchWeather = async (
     return data;
   });
 
-export const revalidateWeather = async () => {
+export const revalidateWeatherCurrent = async () => {
   "use server";
 
   revalidateTag(weatherTag);

@@ -8,18 +8,18 @@ export const metadata: Metadata = {
   description: "Weather info widgets",
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <ErrorBoundary fallback={<p>Something went wrong</p>}>
-        <ThemeProvider defaultTheme="dark" storageKey="next-ui-theme">
-          <body className="bg-slate-0">{children}</body>
-        </ThemeProvider>
-      </ErrorBoundary>
-    </html>
-  );
-}
+}>) => (
+  <html lang="en">
+    <ErrorBoundary fallback={<p>Something went wrong</p>}>
+      <ThemeProvider defaultTheme="dark" storageKey="next-ui-theme">
+        <body>{children}</body>
+      </ThemeProvider>
+    </ErrorBoundary>
+  </html>
+);
+
+export default RootLayout;

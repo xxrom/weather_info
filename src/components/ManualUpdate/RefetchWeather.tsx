@@ -1,15 +1,15 @@
 "use client";
 
-import { revalidateWeather } from "@/actions/weather";
+import { revalidateWeatherCurrent } from "@/actions/weatherCurrent";
 import { revalidateWeatherFiveDays } from "@/actions/weatherFiveDays";
-import { useEffect } from "react";
-import { Button } from "./ui/button";
+import { memo, useEffect } from "react";
+import { Button } from "../ui/button";
 
 const REVALIDATE_INTERVAL = 10 * 60 * 1000; // 10 min auto updates
 
-export const UpdateWeatherButton = () => {
+export const RefetchWeather = memo(() => {
   const revalidateAll = () => {
-    revalidateWeather();
+    revalidateWeatherCurrent();
     revalidateWeatherFiveDays();
   };
 
@@ -22,4 +22,4 @@ export const UpdateWeatherButton = () => {
   }, []);
 
   return <Button onClick={revalidateAll}>Manual update</Button>;
-};
+});

@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { Skeleton } from "./ui/skeleton";
 
-export const SkeletonWeather = memo(() => (
+export const SkeletonWeather = memo(async () => (
   <div className="grid gap-2 w-full sm:w-fit sm:min-w-[600px]">
     <div className="grid w-full grid-cols-1 sm:grid-cols-[200px_1fr] justify-items-center align-middle gap-2">
       <Skeleton className="h-[86px] sm:h-[128px] w-full sm:max-w-[300px] rounded-md border-2 border-slate-300" />

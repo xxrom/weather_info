@@ -1,14 +1,11 @@
 import Image from "next/image";
-import { WeatherObjectInfoType } from "@/actions/weather";
+import { WeatherObjectInfoType } from "@/actions/weatherCurrent";
 import { Card } from "../ui/card";
 import { Highlight } from "../ui/Highlight";
+import { memo } from "react";
 
-export const IconWeather = ({
-  icon,
-  main,
-  description,
-}: WeatherObjectInfoType) => {
-  return (
+export const Icon = memo(
+  async ({ icon, main, description }: WeatherObjectInfoType) => (
     <Card className="grid grid-span-1 grid-flow-row gap-2 grid-cols-[128px_1fr] p-4 overflow-scroll">
       {icon && (
         <div className="grid bg-slate-200 dark:bg-slate-600 rounded-md">
@@ -28,5 +25,5 @@ export const IconWeather = ({
         <div>{`(${description})`}</div>
       </div>
     </Card>
-  );
-};
+  )
+);

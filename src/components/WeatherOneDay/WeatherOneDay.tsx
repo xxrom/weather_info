@@ -1,16 +1,15 @@
-import { fetchWeather } from "@/actions/weather";
-import { memo, useContext } from "react";
-import { UpdateWeatherButton } from "../UpdateWeatherButton";
-import { TempInfo } from "./TempInfo";
-import { IconWeather } from "./IconWeather";
-import { CityTime } from "./CityTime";
+import { fetchWeatherCurrent } from "@/actions/weatherCurrent";
+import { memo } from "react";
+import { Temperature } from "./Temperature";
+import { Icon } from "./Icon";
+import { Name } from "./Name";
 
 export type WeatherOneDay = {
   city?: string;
 };
 
 export const WeatherOneDay = memo(async ({ city = "dubai" }: WeatherOneDay) => {
-  const weather = await fetchWeather(city);
+  const weather = await fetchWeatherCurrent(city);
 
   const { name, dt, main } = weather;
   const weatherOne = weather?.weather?.[0] || null;
@@ -23,13 +22,13 @@ export const WeatherOneDay = memo(async ({ city = "dubai" }: WeatherOneDay) => {
     <div className="grid grid-cols-1 sm:grid-cols-[600px] w-full sm:w-fit">
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 auto-cols-max">
         <div className="grid grid-cols-1 gap-2">
-          <CityTime name={name} dt={dt} />
+          <Name name={name} dt={dt} />
 
-          <IconWeather {...weatherOne} />
+          <Icon {...weatherOne} />
         </div>
 
         <div className="grid grid-cols-1 gap-2">
-          <TempInfo {...main} />
+          <Temperature {...main} />
         </div>
       </div>
     </div>
