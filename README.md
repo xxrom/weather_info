@@ -1,7 +1,6 @@
 # Weather Info Application
 
 ![Image0](https://github.com/xxrom/weather_info/assets/14174697/ec3fc430-229c-450b-a5a5-52369462e8d8)
-![Image1](https://github.com/xxrom/weather_info/assets/14174697/62e0a946-ad49-4e51-aa06-9225f2960eef)
 
 #### Overview
 
