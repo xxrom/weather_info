@@ -22,9 +22,11 @@ export default function Error({ error }: ErrorType) {
           Something went wrong!
         </Highlight>
 
-        <Highlight className="grid text-center text-3xl mt-4">
-          {error.message}
-        </Highlight>
+        {error?.message && (
+          <Highlight className="grid text-center text-3xl mt-4">
+            {error.message}
+          </Highlight>
+        )}
       </Card>
 
       <CityInput />

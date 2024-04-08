@@ -13,7 +13,7 @@ export const ThemeToggler = memo(() => {
   );
 
   return (
-    <div className="absolute top-2 right-6 sm:right-2" suppressHydrationWarning>
+    <div className="absolute top-2 right-6" suppressHydrationWarning>
       <Button
         variant="outline"
         className="dark:text-slate-100"
