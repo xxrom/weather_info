@@ -27,6 +27,7 @@ The application is designed with scalability and maintainability in mind, featur
 - Light/Dark theme modes.
 - Desktop/Table/Mobile adapted design.
 - Added dockerfile + docker-compose for running project in the docker.
+- Added cloud link: project uploaded to the proxmox VM server, runs from docker and routs with ssh tunnel to digital ocean.
 
 ### Getting Started
 

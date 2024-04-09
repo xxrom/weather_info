@@ -5,7 +5,7 @@ import { revalidateWeatherFiveDays } from "@/actions/weatherFiveDays";
 import { memo, useEffect } from "react";
 import { Button } from "../ui/button";
 
-const REVALIDATE_INTERVAL = 10 * 60 * 1000; // 10 min auto updates
+const REVALIDATE_INTERVAL = 1 * 60 * 1000; // 1 min auto updates
 
 export const RefetchWeather = memo(() => {
   const revalidateAll = () => {
