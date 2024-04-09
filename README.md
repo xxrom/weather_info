@@ -26,8 +26,9 @@ The application is designed with scalability and maintainability in mind, featur
 - Clean UI: Offers a straightforward and intuitive interface for users to effortlessly input their locations and receive weather information.
 - Light/Dark theme modes.
 - Desktop/Table/Mobile adapted design.
+- Next.js with server side actions and SSR.
 - Added dockerfile + docker-compose for running project in the docker.
-- Added cloud link: project uploaded to the proxmox VM server, runs from docker and routs with ssh tunnel to digital ocean.
+- Added cloud link: project uploaded to the proxmox VM server, runs from docker and routs with ssh tunnel to VM in digital ocean.
 
 ### Getting Started
 
