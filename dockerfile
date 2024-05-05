@@ -1,26 +1,40 @@
 # Select base image
-FROM node:20-alpine
+FROM node:21-alpine as builder
 
-# Create app directory in Docker
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
-COPY yarn.lock ./
+COPY package.json ./
+
+# Install app dependencies
+RUN yarn install --pure-lockfile --production
+
+# Clear the Yarn cache to free up space
+RUN yarn cache clean
+#RUN rm -rf /usr/local/share/.cache/yarn
+
+# Production stage
+FROM node:21-alpine
+
+WORKDIR /app
+
+COPY --from=builder /app/node_modules ./node_modules
+
+COPY package.json ./
+COPY src ./src
+COPY context ./context
+COPY public ./public
+COPY tsconfig.json ./
+COPY next.config.mjs ./
+COPY tailwind.config.ts ./
+COPY postcss.config.js ./
 
 ARG DOCKER_PORT
-ARG WEATHER_API 
+ARG WEATHER_API
 ENV DOCKER_PORT=$DOCKER_PORT
 ENV WEATHER_API=$WEATHER_API
 
 # Disable Next telemetry
 ENV NEXT_TELEMETRY_DISABLED=1
-
-# Install app dependencies
-RUN yarn install --pure-lockfile --production
-
-# Bundle app source
-COPY . .
 
 # After copying your application code into the image
 RUN chown -R node:node /app
