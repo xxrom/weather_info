@@ -3,18 +3,16 @@ FROM node:21-alpine as builder
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package*.json ./
 
 # Install app dependencies
-RUN yarn install --pure-lockfile --production
+RUN yarn install --pure-lockfile --production=false --no-cache
 
 # Clear the Yarn cache to free up space
 RUN yarn cache clean
-#RUN rm -rf /usr/local/share/.cache/yarn
 
 # Production stage
 FROM node:21-alpine
-
 WORKDIR /app
 
 COPY --from=builder /app/node_modules ./node_modules
@@ -37,10 +35,10 @@ ENV WEATHER_API=$WEATHER_API
 ENV NEXT_TELEMETRY_DISABLED=1
 
 # After copying your application code into the image
-RUN chown -R node:node /app
+#RUN chown -R node:node /app
 
 # Switch user
-USER node
+#USER node
 
 # Your app binds to port 3000 so you'll use the EXPOSE instruction to have it mapped by the docker daemon
 EXPOSE $DOCKER_PORT
