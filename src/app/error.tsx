@@ -3,7 +3,6 @@
 import { Card } from "@/components/ui/card";
 import { useEffect } from "react";
 import { Highlight } from "@/components/ui/Highlight";
-import { Button } from "@/components/ui/button";
 import { CityInput } from "@/components/CityInput";
 
 export type ErrorType = {

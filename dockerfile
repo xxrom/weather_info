@@ -4,27 +4,34 @@ FROM node:21-alpine as builder
 WORKDIR /app
 
 COPY package*.json ./
+COPY yarn.lock ./
 
 # Install app dependencies
-RUN yarn install --pure-lockfile --production=false --no-cache
+RUN yarn install
 
 # Clear the Yarn cache to free up space
 RUN yarn cache clean
+
+COPY context ./context
+COPY public ./public
+COPY src ./src
+COPY next.config.mjs ./
+COPY package.json ./
+COPY postcss.config.js ./
+COPY tailwind.config.ts ./
+COPY tsconfig.json ./
+
+RUN yarn build
 
 # Production stage
 FROM node:21-alpine
 WORKDIR /app
 
 COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/.next ./.next
 
-COPY package.json ./
-COPY src ./src
-COPY context ./context
 COPY public ./public
-COPY tsconfig.json ./
-COPY next.config.mjs ./
-COPY tailwind.config.ts ./
-COPY postcss.config.js ./
+COPY package.json ./
 
 ARG DOCKER_PORT
 ARG WEATHER_API
@@ -44,4 +51,4 @@ ENV NEXT_TELEMETRY_DISABLED=1
 EXPOSE $DOCKER_PORT
 
 # Define the command to run your app
-CMD [ "yarn", "dev" ]
+CMD [ "yarn", "start" ]

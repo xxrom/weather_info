@@ -1,8 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import { WeatherObjectInfoType } from "@/actions/weatherCurrent";
 import { Card } from "../ui/card";
 import { Highlight } from "../ui/Highlight";
 import { memo } from "react";
+
+const imageLoader = ({ src }: { src: string }) => {
+  return `https://openweathermap.org/img/wn/${src}@2x.png`;
+};
 
 export const Icon = memo(
   async ({ icon, main, description }: WeatherObjectInfoType) => (
@@ -14,7 +20,8 @@ export const Icon = memo(
             height={128}
             width={128}
             priority={true}
-            src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
+            loader={imageLoader}
+            src={icon}
           />
         </div>
       )}
