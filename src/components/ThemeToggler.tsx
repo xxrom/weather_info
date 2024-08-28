@@ -8,7 +8,8 @@ export const ThemeToggler = memo(() => {
   const { theme, storageKey, setTheme } = useTheme();
 
   const localTheme =
-    (localStorage && localStorage?.getItem(storageKey)) || theme;
+    (typeof window !== "undefined" && localStorage?.getItem(storageKey)) ||
+    theme;
 
   const onChangeTheme = useCallback(
     () => setTheme(localTheme === "dark" ? "light" : "dark"),
