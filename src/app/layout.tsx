@@ -15,7 +15,7 @@ const RootLayout = ({
 }>) => (
   <html lang="en">
     <ErrorBoundary fallback={<p>Something went wrong</p>}>
-      <ThemeProvider storageKey="next-ui-theme">
+      <ThemeProvider defaultTheme="dark" storageKey="next-ui-theme">
         <body>{children}</body>
       </ThemeProvider>
     </ErrorBoundary>
