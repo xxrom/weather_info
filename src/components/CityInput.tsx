@@ -48,7 +48,7 @@ export const CityInput = memo(({ placeholder }: CityInput) => {
         onKeyDown={onKeyDown}
       />
 
-      <Button className="inline-grid" onClick={onClickGoToCity}>
+      <Button className="inline-grid min-w-48" onClick={onClickGoToCity}>
         Change City
       </Button>
     </div>

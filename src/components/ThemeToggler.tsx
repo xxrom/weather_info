@@ -5,11 +5,13 @@ import { useTheme } from "../../context/themeProvider";
 import { memo, useCallback } from "react";
 
 export const ThemeToggler = memo(() => {
-  const { theme, setTheme } = useTheme();
+  const { theme, storageKey, setTheme } = useTheme();
+
+  const localTheme = localStorage?.getItem(storageKey) || theme;
 
   const onChangeTheme = useCallback(
-    () => setTheme(theme === "dark" ? "light" : "dark"),
-    [theme]
+    () => setTheme(localTheme === "dark" ? "light" : "dark"),
+    [localTheme]
   );
 
   return (
@@ -20,7 +22,7 @@ export const ThemeToggler = memo(() => {
         onClick={onChangeTheme}
         suppressHydrationWarning
       >
-        {theme === "dark" ? "𖤓" : "☾"}
+        {localTheme === "dark" ? "𖤓" : "☾"}
       </Button>
     </div>
   );

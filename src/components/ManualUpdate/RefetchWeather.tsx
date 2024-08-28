@@ -21,5 +21,9 @@ export const RefetchWeather = memo(() => {
     };
   }, []);
 
-  return <Button onClick={revalidateAll}>Manual update</Button>;
+  return (
+    <Button className="min-w-48" onClick={revalidateAll}>
+      Manual update
+    </Button>
+  );
 });

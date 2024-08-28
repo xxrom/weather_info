@@ -56,6 +56,7 @@ export type WeatherObjectType = {
 
 const weatherTag = "weather-city";
 //`${process.env.NEXT_PUBLIC_SERVER_URL}/api/articles/?limit=${limit}&page=${page}`,
+
 export const fetchWeatherCurrent = async (
   city = "dubai"
 ): Promise<WeatherObjectType> =>

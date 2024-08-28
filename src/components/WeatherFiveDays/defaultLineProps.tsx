@@ -1,4 +1,4 @@
-import { Dimensions } from "@nivo/core";
+import { Dimensions, linearGradientDef, patternDotsDef } from "@nivo/core";
 import { LineSvgProps, PointTooltipProps } from "@nivo/line";
 
 export const getDefaultLineProps = ({
@@ -47,7 +47,7 @@ export const getDefaultLineProps = ({
     },
     pointSize: 6,
     crosshairType: "cross",
-    areaBlendMode: "darken",
+    areaBlendMode: "normal", // 'normal' to see on dark theme
     lineWidth: 1,
     pointBorderWidth: 1,
     pointColor: { from: "color", modifiers: [] },
@@ -74,8 +74,20 @@ export const getDefaultLineProps = ({
         ))}
       </div>
     ),
-    fill: [],
-    defs: [],
+    fill: [{ match: "*", id: "dots" }],
+    defs: [
+      patternDotsDef("dots", {
+        size: 2,
+        padding: 6,
+        stagger: false,
+        background: "#d695f9",
+        color: "inherit",
+      }),
+      linearGradientDef("gradientA", [
+        { offset: 0, color: "inherit" },
+        { offset: 100, color: "inherit", opacity: 0 },
+      ]),
+    ],
     layers: [
       "grid",
       "markers",
@@ -109,7 +121,7 @@ export const getDefaultLineProps = ({
         itemOpacity: 0.75,
         symbolSize: 12,
         symbolShape: "circle",
-        symbolBorderColor: "rgba(0, 0, 0, .5)",
+        symbolBorderColor: "rgba(0, 0, 0, .9)",
         effects: [
           {
             on: "hover",
