@@ -7,7 +7,8 @@ import { memo, useCallback } from "react";
 export const ThemeToggler = memo(() => {
   const { theme, storageKey, setTheme } = useTheme();
 
-  const localTheme = localStorage?.getItem(storageKey) || theme;
+  const localTheme =
+    (localStorage && localStorage?.getItem(storageKey)) || theme;
 
   const onChangeTheme = useCallback(
     () => setTheme(localTheme === "dark" ? "light" : "dark"),
